@@ -1,4 +1,4 @@
-FROM openjdk:11 
+FROM openjdk:11-jdk
 WORKDIR /app
 COPY . . 
 RUN chmod +x gradlew
