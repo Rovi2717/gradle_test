@@ -1,5 +1,5 @@
 # Build stage
-FROM openjdk:11-jdk AS base
+FROM openjdk:11-slim AS base
 
 WORKDIR /app
 
