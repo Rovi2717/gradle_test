@@ -1,7 +1,7 @@
 FROM circleci/openjdk:11-jdk-buster-node-browsers-legacy 
 WORKDIR /app
 COPY . . 
-RUN chmod +x gradlew
+RUN sudo chmod +x gradlew
 RUN ./gradlew build 
 
 FROM tomcat:9
