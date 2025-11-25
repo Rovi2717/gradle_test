@@ -1,4 +1,4 @@
-FROM rockplace/openjdk-11
+FROM hkube/openjdk11
 WORKDIR /app
 COPY . . 
 RUN sudo chmod +x gradlew
