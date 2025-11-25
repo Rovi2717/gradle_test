@@ -1,7 +1,7 @@
 FROM gradle:jdk11-corretto-al2023
 WORKDIR /app
 COPY . . 
-RUN sudo chmod +x gradlew
+RUN chmod +x gradlew
 RUN ./gradlew build 
 
 FROM tomcat:9
