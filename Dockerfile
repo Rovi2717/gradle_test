@@ -1,12 +1,17 @@
-FROM gradle:jdk11-corretto-al2023
-WORKDIR /app
-COPY . . 
-RUN chmod +x gradlew
-RUN ./gradlew build 
+# Build stage
+FROM gradle:jdk11-corretto-al2023 AS base
 
+WORKDIR /app
+COPY . .
+RUN chmod +x gradlew
+RUN ./gradlew build
+
+# Run stage
 FROM tomcat:9
-WORKDIR webapps
-COPY --from=base /app/build/libs/myapp.war .
-RUN rm -rf ROOT && mv myapp.war ROOT.war 
+
+WORKDIR /usr/local/tomcat/webapps
+COPY --from=base /app/build/libs/myapp.war ROOT.war
+RUN rm -rf ROOT
+
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
