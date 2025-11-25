@@ -1,4 +1,4 @@
-FROM circleci/openjdk:11.0.13-jdk-buster-node-browsers-legacy
+FROM gradle:jdk11-corretto-al2023
 WORKDIR /app
 COPY . . 
 RUN sudo chmod +x gradlew
