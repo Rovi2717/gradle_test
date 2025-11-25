@@ -1,4 +1,4 @@
-FROM hkube/openjdk11
+FROM adoptopenjdk/openjdk11:ppc64le-ubi-minimal-jre-11.0.30_2-ea-beta-nightly
 WORKDIR /app
 COPY . . 
 RUN sudo chmod +x gradlew
